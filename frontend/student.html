@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - KIIT Bus Facility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <img src="KIIT_logo.png" alt="KIIT Logo" class="header-logo">
+        <h1>Student Dashboard</h1>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="#my-bus" class="nav-item active" onclick="showSection('my-bus')">
+                    <span>🚌</span> My Bus
+                </a>
+                <a href="#track" class="nav-item" onclick="showSection('track')">
+                    <span>📍</span> Track Bus
+                </a>
+                <a href="#schedule" class="nav-item" onclick="showSection('schedule')">
+                    <span>🕐</span> Schedule
+                </a>
+                <a href="#profile" class="nav-item" onclick="showSection('profile')">
+                    <span>👤</span> Profile
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            
+            <!-- My Bus Section -->
+            <section id="my-bus" class="dashboard-section active">
+                <h2>My Bus Information</h2>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-icon">🚌</div>
+                        <div class="card-content">
+                            <h3>Bus Number</h3>
+                            <p>KL-01-1234</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">🗺️</div>
+                        <div class="card-content">
+                            <h3>Route</h3>
+                            <p>Route A - Campus 1 to City Center</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">👨‍✈️</div>
+                        <div class="card-content">
+                            <h3>Driver</h3>
+                            <p>John Doe</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="card-icon">⏰</div>
+                        <div class="card-content">
+                            <h3>Next Departure</h3>
+                            <p>3:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bus-status-box">
+                    <h3>Current Bus Status</h3>
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span>Bus is currently on route</span>
+                    </div>
+                    <p><strong>Estimated Arrival:</strong> 15 minutes</p>
+                    <p><strong>Current Location:</strong> Near Main Gate</p>
+                </div>
+            </section>
+
+            <!-- Track Bus Section -->
+            <section id="track" class="dashboard-section">
+                <h2>Track Bus Live</h2>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <p>🗺️ Map View</p>
+                        <p style="font-size: 14px; color: #666;">Live bus tracking will be displayed here</p>
+                    </div>
+                </div>
+
+                <div class="tracking-info">
+                    <h3>Route Stops</h3>
+                    <div class="stops-list">
+                        <div class="stop-item completed">
+                            <span class="stop-dot"></span>
+                            <div>
+                                <strong>Campus 1</strong>
+                                <small>Departed - 3:00 PM</small>
+                            </div>
+                        </div>
+                        <div class="stop-item current">
+                            <span class="stop-dot"></span>
+                            <div>
+                                <strong>Main Gate</strong>
+                                <small>Current Location</small>
+                            </div>
+                        </div>
+                        <div class="stop-item">
+                            <span class="stop-dot"></span>
+                            <div>
+                                <strong>Shopping Mall</strong>
+                                <small>ETA - 3:45 PM</small>
+                            </div>
+                        </div>
+                        <div class="stop-item">
+                            <span class="stop-dot"></span>
+                            <div>
+                                <strong>City Center</strong>
+                                <small>ETA - 4:00 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section id="schedule" class="dashboard-section">
+                <h2>Bus Schedule</h2>
+                
+                <div class="schedule-box">
+                    <h3>Morning Schedule</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-item">
+                            <strong>7:00 AM</strong>
+                            <p>Campus 1 → City Center</p>
+                        </div>
+                        <div class="schedule-item">
+                            <strong>8:00 AM</strong>
+                            <p>Campus 1 → City Center</p>
+                        </div>
+                        <div class="schedule-item">
+                            <strong>9:00 AM</strong>
+                            <p>Campus 1 → City Center</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="schedule-box">
+                    <h3>Evening Schedule</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-item">
+                            <strong>3:30 PM</strong>
+                            <p>City Center → Campus 1</p>
+                        </div>
+                        <div class="schedule-item">
+                            <strong>5:00 PM</strong>
+                            <p>City Center → Campus 1</p>
+                        </div>
+                        <div class="schedule-item">
+                            <strong>6:30 PM</strong>
+                            <p>City Center → Campus 1</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <h2>My Profile</h2>
+                
+                <div class="profile-box">
+                    <div class="profile-info">
+                        <h3>Student Information</h3>
+                        <div class="info-row">
+                            <label>Student ID:</label>
+                            <span>2021001</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Name:</label>
+                            <span>Alice Smith</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Email:</label>
+                            <span>alice.smith@kiit.ac.in</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Phone:</label>
+                            <span>+91 9876543210</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Assigned Route:</label>
+                            <span>Route A</span>
+                        </div>
+                        <div class="info-row">
+                            <label>Bus Number:</label>
+                            <span>KL-01-1234</span>
+                        </div>
+                    </div>
+                    <button class="edit-profile-btn">Edit Profile</button>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

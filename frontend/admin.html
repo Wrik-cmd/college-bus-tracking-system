@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - KIIT Bus Facility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Header -->
+    <header class="dashboard-header">
+        <img src="KIIT_logo.png" alt="KIIT Logo" class="header-logo">
+        <h1>Admin Dashboard</h1>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="#buses" class="nav-item active" onclick="showSection('buses')">
+                    <span>🚌</span> Manage Buses
+                </a>
+                <a href="#routes" class="nav-item" onclick="showSection('routes')">
+                    <span>🗺️</span> Manage Routes
+                </a>
+                <a href="#drivers" class="nav-item" onclick="showSection('drivers')">
+                    <span>👨‍✈️</span> Manage Drivers
+                </a>
+                <a href="#students" class="nav-item" onclick="showSection('students')">
+                    <span>👥</span> Students
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            
+            <!-- Manage Buses Section -->
+            <section id="buses" class="dashboard-section active">
+                <h2>Manage Buses</h2>
+                
+                <div class="add-form">
+                    <h3>Add New Bus</h3>
+                    <div class="form-grid">
+                        <input type="text" id="busNumber" placeholder="Bus Number (e.g., KL-01-1234)">
+                        <input type="text" id="busCapacity" placeholder="Capacity">
+                        <select id="busRoute">
+                            <option value="">Select Route</option>
+                            <option value="Route A">Route A</option>
+                            <option value="Route B">Route B</option>
+                            <option value="Route C">Route C</option>
+                        </select>
+                        <select id="busDriver">
+                            <option value="">Select Driver</option>
+                            <option value="Driver 1">Driver 1</option>
+                            <option value="Driver 2">Driver 2</option>
+                        </select>
+                    </div>
+                    <button onclick="addBus()" class="add-btn">Add Bus</button>
+                </div>
+
+                <div class="data-table">
+                    <h3>Bus List</h3>
+                    <table id="busTable">
+                        <thead>
+                            <tr>
+                                <th>Bus Number</th>
+                                <th>Capacity</th>
+                                <th>Route</th>
+                                <th>Driver</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>KL-01-1234</td>
+                                <td>50</td>
+                                <td>Route A</td>
+                                <td>John Doe</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="edit-btn">Edit</button>
+                                    <button class="delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Manage Routes Section -->
+            <section id="routes" class="dashboard-section">
+                <h2>Manage Routes</h2>
+                
+                <div class="add-form">
+                    <h3>Add New Route</h3>
+                    <div class="form-grid">
+                        <input type="text" id="routeName" placeholder="Route Name">
+                        <input type="text" id="routeStart" placeholder="Starting Point">
+                        <input type="text" id="routeEnd" placeholder="Ending Point">
+                        <input type="text" id="routeStops" placeholder="Number of Stops">
+                    </div>
+                    <button onclick="addRoute()" class="add-btn">Add Route</button>
+                </div>
+
+                <div class="data-table">
+                    <h3>Routes List</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Route Name</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Stops</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Route A</td>
+                                <td>Campus 1</td>
+                                <td>City Center</td>
+                                <td>8</td>
+                                <td>
+                                    <button class="edit-btn">Edit</button>
+                                    <button class="delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Manage Drivers Section -->
+            <section id="drivers" class="dashboard-section">
+                <h2>Manage Drivers</h2>
+                
+                <div class="add-form">
+                    <h3>Add New Driver</h3>
+                    <div class="form-grid">
+                        <input type="text" id="driverName" placeholder="Driver Name">
+                        <input type="text" id="driverLicense" placeholder="License Number">
+                        <input type="text" id="driverPhone" placeholder="Phone Number">
+                        <input type="text" id="driverExperience" placeholder="Experience (years)">
+                    </div>
+                    <button onclick="addDriver()" class="add-btn">Add Driver</button>
+                </div>
+
+                <div class="data-table">
+                    <h3>Drivers List</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>License</th>
+                                <th>Phone</th>
+                                <th>Experience</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>DL-1234567890</td>
+                                <td>+91 9876543210</td>
+                                <td>10 years</td>
+                                <td>
+                                    <button class="edit-btn">Edit</button>
+                                    <button class="delete-btn">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Students Section -->
+            <section id="students" class="dashboard-section">
+                <h2>Students</h2>
+                
+                <div class="data-table">
+                    <h3>Registered Students</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Route</th>
+                                <th>Bus Number</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2021001</td>
+                                <td>Alice Smith</td>
+                                <td>Route A</td>
+                                <td>KL-01-1234</td>
+                                <td><span class="status active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
